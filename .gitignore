@@ -4,6 +4,7 @@ server/logs/
 .next/
 .env
 /build
+/build_ts
 /logs
 
 # Idea
