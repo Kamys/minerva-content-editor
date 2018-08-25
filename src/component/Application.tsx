@@ -1,5 +1,5 @@
-import {Component} from 'react';
 import * as React from 'react';
+import { Component } from 'react';
 import { RndCard } from 'src/component/RndCard';
 
 export interface IState {
@@ -12,11 +12,15 @@ export interface IProps {
 
 class Application extends Component<IProps, IState> {
 
-	state: IState = {
-	};
+	state: IState = {};
 
-	static defaultProps: IProps = {
-	};
+	static defaultProps: IProps = {};
+
+	componentDidMount(): void {
+		document.addEventListener('paste', (e: ClipboardEvent) => {
+			console.log(e.clipboardData.getData('text'));
+		});
+	}
 
 	render() {
 		return (
@@ -29,4 +33,4 @@ class Application extends Component<IProps, IState> {
 	}
 }
 
-export  default Application;
+export default Application;
