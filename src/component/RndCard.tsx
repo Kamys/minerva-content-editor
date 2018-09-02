@@ -1,5 +1,5 @@
-import { Component } from 'react';
 import * as React from 'react';
+import { Component } from 'react';
 import { Rnd } from 'react-rnd';
 import { Card, CardContent } from '@material-ui/core';
 
@@ -32,8 +32,8 @@ export class RndCard extends Component<IProps, IState> {
 					height: 200,
 				}}
 			>
-				<Card style={{ width: '100%', height: '100%' }}>
-					<CardContent>
+				<Card style={{ width: '100%', height: '100%', padding: 0 }}>
+					<CardContent style={{ padding: 5 }}>
 						{children}
 					</CardContent>
 				</Card>
