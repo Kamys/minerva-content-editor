@@ -33,9 +33,20 @@ class Application extends Component<IProps, IState> {
 
 	static defaultProps: IProps = {};
 
-	componentDidMount(): void {
-		document.addEventListener('paste', (e: ClipboardEvent) => {
-			console.log(e.clipboardData.getData('text'));
+	onPasteText = (e: ClipboardEvent) => {
+		const body = extractText(e);
+
+		const { cards, mouseY, mouseX } = this.state;
+		this.setState({
+			cards: [
+				...cards,
+				{
+					id: uniqid(),
+					x: mouseX - 100,
+					y: mouseY - 100,
+					body,
+				},
+			],
 		});
 	}
 
