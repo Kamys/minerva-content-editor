@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-export interface IRootState {
+export interface IReduxState {
 }
 
 const appReducers = combineReducers({

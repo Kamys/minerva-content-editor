@@ -5,6 +5,7 @@ import * as uniqid from 'uniqid';
 import { RndCard } from 'src/component/RndCard';
 import EventListener from 'src/component/helpers/EventListener';
 import { extractText } from 'src/helpers/common'
+import Editor from 'src/component/Editor'
 
 interface ICard {
 	id: string;
@@ -76,11 +77,12 @@ class Application extends Component<IProps, IState> {
 							x={card.x}
 							y={card.y}
 						>
-							<div
+							<Editor/>
+							{/*<div
 								dangerouslySetInnerHTML={{
 									__html: card.body,
 								}}
-							/>
+							/>*/}
 						</RndCard>
 					))
 				}

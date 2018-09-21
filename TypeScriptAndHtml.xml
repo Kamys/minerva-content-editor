@@ -1,7 +1,8 @@
-<code_scheme name="Project" version="173">
+<code_scheme name="Minerva CE" version="173">
   <HTMLCodeStyleSettings>
     <option name="HTML_ATTRIBUTE_WRAP" value="2" />
     <option name="HTML_SPACE_INSIDE_EMPTY_TAG" value="true" />
+    <option name="HTML_DO_NOT_INDENT_CHILDREN_OF" value="html,body,thead,tfoot" />
     <option name="HTML_NEWLINE_BEFORE_FIRST_ATTRIBUTE" value="When multiline" />
     <option name="HTML_NEWLINE_AFTER_LAST_ATTRIBUTE" value="When multiline" />
   </HTMLCodeStyleSettings>
@@ -13,7 +14,7 @@
     <option name="IMPORT_PREFER_ABSOLUTE_PATH" value="TRUE" />
   </JSCodeStyleSettings>
   <TypeScriptCodeStyleSettings>
-    <option name="FORCE_SEMICOLON_STYLE" value="true" />
+    <option name="USE_SEMICOLON_AFTER_STATEMENT" value="false" />
     <option name="ALIGN_VAR_STATEMENTS" value="2" />
     <option name="USE_DOUBLE_QUOTES" value="false" />
     <option name="FORCE_QUOTE_STYlE" value="true" />
@@ -31,8 +32,8 @@
   </codeStyleSettings>
   <codeStyleSettings language="JavaScript">
     <indentOptions>
-      <option name="TAB_SIZE" value="1" />
       <option name="USE_TAB_CHARACTER" value="true" />
+      <option name="SMART_TABS" value="true" />
     </indentOptions>
   </codeStyleSettings>
   <codeStyleSettings language="SCSS">

@@ -22,6 +22,10 @@ const moduleWebpack = {
 			loader: 'source-map-loader',
 			enforce: 'pre',
 		},
+		{
+			test: /\.css$/,
+			use: ['style-loader', 'css-loader'],
+		},
 	],
 };
 
