@@ -41,7 +41,7 @@ export class RndCard extends Component<IProps, IState> {
 					bottomRight: 'resize'
 				}}
 			>
-				<Card style={{ width: '100%', height: '100%', padding: 0 }}>
+				<Card className='rnd-card'>
 					<div className='drag'/>
 					<CardContent style={{ padding: 5 }}>
 						{children}
