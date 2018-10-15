@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import * as uniqid from 'uniqid';
+import * as _ from 'lodash';
 
 import { IReduxState } from 'src/store/rootState'
 import EventListener from 'src/component/helpers/EventListener'
@@ -30,6 +31,8 @@ const mapDispatchToProps = (dispatch) => ({
 	*/
 });
 
+const updateState = _.throttle(updateState => updateState(), 1000);
+
 class Board extends Component<IProps, IState> {
 
 	state: IState = {
@@ -43,17 +46,20 @@ class Board extends Component<IProps, IState> {
 
 		const { cards, mouseY, mouseX } = this.state;
 
-		this.setState({
-			cards: [
-				...cards,
-				{
-					id: uniqid(),
-					x: mouseX - 100,
-					y: mouseY - 100,
-					body,
-				},
-			],
+		updateState(() => {
+			this.setState({
+				cards: [
+					...cards,
+					{
+						id: uniqid(),
+						x: mouseX - 100,
+						y: mouseY - 100,
+						body,
+					},
+				],
+			});
 		});
+
 	}
 
 	onMoveCursor = ({ clientY, clientX }: MouseEvent) => {
