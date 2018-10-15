@@ -79,6 +79,12 @@ class Board extends Component<IProps, IState> {
 		});
 	}
 
+	onClose = cardId => () => {
+		this.setState({
+			cards: this.state.cards.filter(card => card.id !== cardId),
+		})
+	}
+
 	render() {
 
 		const { cards } = this.state;
@@ -94,7 +100,12 @@ class Board extends Component<IProps, IState> {
 				/>
 				{
 					cards.map(card => (
-						<Card {...card} onChangeBody={this.onChangeCard(card.id)}/>
+						<Card
+							key={card.id}
+							{...card}
+							onChangeBody={this.onChangeCard(card.id)}
+							onClose={this.onClose(card.id)}
+						/>
 					))
 				}
 			</>

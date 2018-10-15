@@ -30,7 +30,7 @@ class ToolBar extends Component<IProps, IState> {
 							<Grid container justify="center" spacing={8}>
 								{
 									editButtons.map(buttonProps => (
-										<Grid item>
+										<Grid item key={buttonProps.cmd}>
 											<EditButton {...buttonProps}/>
 										</Grid>
 									))
