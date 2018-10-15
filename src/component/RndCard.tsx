@@ -3,6 +3,8 @@ import { Component } from 'react';
 import { Rnd } from 'react-rnd';
 import { Card, CardContent } from '@material-ui/core';
 
+import './RndCard.css';
+
 export interface IState {
 
 }
@@ -31,8 +33,16 @@ export class RndCard extends Component<IProps, IState> {
 					width: 320,
 					height: 200,
 				}}
+				dragHandleClassName={'drag'}
+				enableResizing={{
+					bottomRight: true,
+				}}
+				resizeHandleClasses={{
+					bottomRight: 'resize'
+				}}
 			>
 				<Card style={{ width: '100%', height: '100%', padding: 0 }}>
+					<div className='drag'/>
 					<CardContent style={{ padding: 5 }}>
 						{children}
 					</CardContent>

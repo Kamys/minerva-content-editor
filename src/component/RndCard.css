@@ -1,0 +1,13 @@
+.drag {
+	height: 10px;
+	background-color: #e0e0e0;
+	cursor: grab;
+}
+
+.drag:active {
+	cursor: grabbing;
+}
+
+.resize {
+	content: "\21F2";
+}

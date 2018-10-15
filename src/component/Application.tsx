@@ -4,8 +4,9 @@ import * as uniqid from 'uniqid';
 
 import { RndCard } from 'src/component/RndCard';
 import EventListener from 'src/component/helpers/EventListener';
-import { extractText } from 'src/helpers/common'
-import Editor from 'src/component/Editor'
+import { extractText } from 'src/helpers/common';
+import ContentEditable from 'react-contenteditable'
+import ToolBar from 'src/component/ToolBar/ToolBar'
 
 interface ICard {
 	id: string;
@@ -58,6 +59,22 @@ class Application extends Component<IProps, IState> {
 		});
 	}
 
+	onChange = cardId => event => {
+		const newText = event.target.value
+
+		this.setState({
+			cards: this.state.cards.map(card => {
+				if(card.id === cardId) {
+					return {
+						...card,
+						body: newText,
+					};
+				}
+				return card;
+			})
+		});
+	}
+
 	render() {
 		const { cards } = this.state;
 		return (
@@ -70,6 +87,7 @@ class Application extends Component<IProps, IState> {
 					eventName='mousemove'
 					onHappenEvent={this.onMoveCursor}
 				/>
+				<ToolBar/>
 				{
 					cards.map(card => (
 						<RndCard
@@ -77,12 +95,12 @@ class Application extends Component<IProps, IState> {
 							x={card.x}
 							y={card.y}
 						>
-							<Editor/>
-							{/*<div
-								dangerouslySetInnerHTML={{
-									__html: card.body,
-								}}
-							/>*/}
+							<ContentEditable
+								html={card.body}
+								disabled={false}
+								onChange={this.onChange(card.id)}
+								tagName='article'
+							/>
 						</RndCard>
 					))
 				}
